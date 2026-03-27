@@ -1,0 +1,52 @@
+# Simple Online Shopping System
+
+products = {
+    1: ("Laptop", 50000),
+    2: ("Phone", 20000),
+    3: ("Headphones", 2000),
+    4: ("Keyboard", 1500)
+}
+
+cart = []
+
+def show_products():
+    print("\nAvailable Products:")
+    for key, value in products.items():
+        print(f"{key}. {value[0]} - ₹{value[1]}")
+
+def add_to_cart(choice):
+    if choice in products:
+        cart.append(products[choice])
+        print(products[choice][0], "added to cart!")
+    else:
+        print("Invalid choice")
+
+def view_cart():
+    print("\nYour Cart:")
+    total = 0
+    for item in cart:
+        print(item[0], "- ₹", item[1])
+        total += item[1]
+    print("Total Amount: ₹", total)
+
+while True:
+    print("\n1. Show Products")
+    print("2. Add to Cart")
+    print("3. View Cart")
+    print("4. Exit")
+
+    option = int(input("Enter choice: "))
+
+    if option == 1:
+        show_products()
+    elif option == 2:
+        show_products()
+        choice = int(input("Enter product number: "))
+        add_to_cart(choice)
+    elif option == 3:
+        view_cart()
+    elif option == 4:
+        print("Thank you for shopping!")
+        break
+    else:
+        print("Invalid option")
